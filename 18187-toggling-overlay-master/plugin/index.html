@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Toggle Overlay</title>
+  <!-- Styles for the overlay plugin -->
+  <link href="https://players.brightcove.net/videojs-overlay/1/videojs-overlay.css" rel="stylesheet">
+  <!-- Styles for your custom player -->
+  <link href="toggle-overlay.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- Player embed code with an id attribute added -->
+  <video-js id="myPlayerID"
+    data-video-id="4029697544001"
+    data-account="1752604059001"
+    data-player="default"
+    data-embed="default"
+    data-application-id
+    class="video-js"
+    controls
+    width="640"
+    height="360"></video-js>
+  <script src="https://players.brightcove.net/1752604059001/default_default/index.min.js"></script>
+
+  <!-- Button to show and hide the overlay -->
+  <br/>
+  <input id="overlayButton" type="button" value="Toggle Overlay">
+
+  <!-- Script for the Overlay plugin -->
+  <script src="https://players.brightcove.net/videojs-overlay/1/videojs-overlay.min.js"></script>
+
+  <!-- Custom script for toggling overlay -->
+  <script type="text/javascript" src="toggle-overlay.js"></script>
+  <script>videojs('myPlayerID').toggleOverlay();</script>
+
+</body>
+
+</html>

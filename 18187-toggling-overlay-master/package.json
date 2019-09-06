@@ -1,0 +1,12 @@
+{
+  "name": "18187-toggling-overlay-master",
+  "version": "1.0.0",
+  "description": "<!-- BE SURE TO UPDATE NAME AND LINK TO DOC -->",
+  "main": "index.html",
+  "scripts": {
+    "start": "index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

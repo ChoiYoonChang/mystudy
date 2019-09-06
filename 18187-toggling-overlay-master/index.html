@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Toggle Overlay</title>
+  <!-- Styles for the Overlay plugin -->
+  <link href="https://players.brightcove.net/videojs-overlay/1/videojs-overlay.css" rel="stylesheet">
+
+  <style>
+    /* Override default overlay styles */
+    .vjs-overlay.vjs-overlay-top.vjs-overlay-background1 {
+      font-size: 1.5em;
+      width: 60%;
+      height: auto;
+      margin: auto;
+      color: yellow;
+      left: 0;
+      top: 70%;
+      background: red;
+      opacity: 0.5;
+    }
+
+    /* Override default overlay styles */
+    .vjs-overlay.vjs-overlay-top.vjs-overlay-background2 {
+      font-size: 1.5em;
+      width: 60%;
+      height: auto;
+      margin: auto;
+      color: yellow;
+      left: 0;
+      top: 55%;
+      background: red;
+      opacity: 0.5;
+    }
+
+    /* Hide the overlay */
+    .hide-overlay .vjs-overlay {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Player embed code with an id attribute added -->
+  <video-js id="myPlayerID" data-video-id="4029697544001" data-account="1752604059001" data-player="default"
+    data-embed="default" data-application-id class="video-js" controls width="640" height="360"></video-js>
+  <script src="https://players.brightcove.net/1752604059001/default_default/index.min.js"></script>
+
+  <!-- Button to show and hide the overlay -->
+  <br />
+  <input id="overlayButton" type="button" value="Toggle Overlay">
+
+  <!-- Script for the Overlay plugin -->
+  <script src="https://players.brightcove.net/videojs-overlay/1/videojs-overlay.min.js"></script>
+
+  <script type="text/JavaScript">
+    var myPlayer1, myPlayer2,
+    	overlayDisplayed,
+    	eOverlayButton = document.getElementById("overlayButton");
+
+    videojs.getPlayer('myPlayerID').ready(function() {
+    	// When the player is ready, get a reference to it
+    	myPlayer1 = this;
+      myPlayer2 = this;
+
+      // Initialize the overlay plugin with a clickable image
+      myPlayer1.overlay({
+        "overlays": [
+          {
+            "class": 'vjs-overlay-background1',
+            "align": "top",
+            "start" : "loadedmetadata",
+            "content": "kkk"
+          },          {
+            "class": 'vjs-overlay-background2',
+            "align": "top",
+            "start" : "loadedmetadata",
+            "content": "jjj"
+          }
+
+        ],
+        "content": "Default overlay content"
+      });
+
+  		// Initially hide the overlay
+      overlayDisplayed = false;
+      myPlayer1.addClass("hide-overlay");
+      myPlayer2.addClass("hide-overlay");
+
+      // Listen for the click event on the Toggle Overlay button
+      eOverlayButton.addEventListener("click",function(){
+        if (overlayDisplayed) {
+        	// Hide the overlay
+        	overlayDisplayed = false;
+          myPlayer1.addClass("hide-overlay");
+          myPlayer2.addClass("hide-overlay");
+        } else {
+        	// Show the overlay
+        	overlayDisplayed = true;
+        	myPlayer1.removeClass("hide-overlay");
+        	myPlayer2.removeClass("hide-overlay");
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

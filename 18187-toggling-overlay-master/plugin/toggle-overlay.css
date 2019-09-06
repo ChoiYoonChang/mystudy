@@ -1,0 +1,11 @@
+/* Override default overlay styles */
+.vjs-overlay.vjs-overlay-top.vjs-overlay-background {
+  width: 100%;
+  margin: auto;
+  left: 0;
+  background: none;
+}
+/* Hide the overlay */
+.hide-overlay .vjs-overlay {
+  display: none;
+}
